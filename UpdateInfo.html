@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracing Server</title>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- bootstrap link -->
+    <!-- css link -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- css link -->
+    <!-- fontawesome link -->
+    <script src="https://kit.fontawesome.com/006a121453.js" crossorigin="anonymous"></script>
+    <!-- fontawesome link -->
+</head>
+
+<body>
+    <h1 class="heading-text text-center bg-dark ">
+        <a href="UserList.html" class="text-white">Covid Tracing Administrator</a>
+    </h1>
+    <div class="update-form">
+        <form>
+            <label for="fullname">Họ và tên:</label><br>
+            <input type="text" id="fullname" name="fullname"><br>
+            
+            <label for="phonenumber">Số điện thoại:</label><br>
+            <input type="text" id="phonenumber" name="phonenumber"><br><br>
+            
+            <input type="radio" id="negative" name="status" value="negative">
+            <label for="negative">Không nhiễm bệnh</label><br>
+            
+            <input type="radio" id="positive" name="status" value="positive">
+            <label for="positive">Nhiễm bệnh</label><br>
+            
+            <button id="btnSave" class="btn btn-success">
+                Lưu thông tin
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>

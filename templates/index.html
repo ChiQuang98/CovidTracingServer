@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Tracing Server</title>
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- bootstrap link -->
+    <!-- css link -->
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- css link -->
+    <!-- fontawesome link -->
+    <script src="https://kit.fontawesome.com/006a121453.js" crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script type="text/javascript" src="../ js/form_action.js"></script>
+    <!-- fontawesome link -->
+<!--    btnAlertCovid-->
+    <script>
+    $(document).ready(function(){
+    var globalUrl = ""
+<!--&lt;!&ndash;$('.btnAlertCovid').on('click', function () {&ndash;&gt;-->
+<!--&lt;!&ndash;        return confirm("Bạn có muốn thông báo là F0 tới tất cả mọi người không?");&ndash;&gt;-->
+
+<!--&lt;!&ndash;    });&ndash;&gt;-->
+<!--$('.btnAlertCovid').on('click', function () {-->
+<!--    jQuery.noConflict();-->
+<!--    $("#exampleModal").modal('show');-->
+
+<!--&lt;!&ndash;        return confirm("Bạn có muốn thông báo là F0 tới tất cả mọi người không?");&ndash;&gt;-->
+
+<!--    });-->
+   function test( ) {
+            alert("myVar");
+         }
+
+});
+
+    </script>
+</head>
+
+<body>
+<h1 class="heading-text text-center bg-dark ">
+    <a href="UserList.html" class="text-white">Covid Tracing Administrator</a>
+</h1>
+<div>
+    <div class="search-box float-left">
+        <form>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Tìm kiếm: </span>
+                </div>
+                <input type="text" id="txtSearch" name="keyword" value="" placeholder="Số điện thoại">
+                <div class="input-group-append">
+                    <button class="btn btn-warning" id="btnSearch" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="option-buttons float-right">
+        <button id="btnUpdate" class="btn btn-danger">
+            <a href="http://127.0.0.1:5000/" class="text-white">Cập nhật</a>
+        </button>
+<button id="btnReport" type="button"
+
+                        data-target="#exampleModal"  class="btn btn-dark" data-toggle="modal"  data-whatever="@fat">Thông báo chung</button>
+    </div>
+</div>
+<div>
+    <table class="table table-striped table-bordered">
+        <thead class="bg-primary text-white">
+        <tr class="text-center">
+            <th>ID</th>
+            <!--                    <th>Họ và tên</th>-->
+            <th>Số điện thoại</th>
+            <th>Key in App</th>
+            <th>Tình trạng bệnh</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody class="font-weight-light text-center">
+
+        {% for user in users %}
+        <tr>
+            <th id="{{user['IDUser']}}">{{user['IDUser']}}</th>
+            <th>{{user['phone']}}</th>
+            <th>{{user['key']}}</th>
+            <th>{{user['isExpose']}}</th>
+<!--            <th>-->
+<!--                {% if user['isExpose']==False %}-->
+<!--                Chưa nhiễm-->
+<!--                {% endif %}-->
+<!--                {% if user['isExpose']!=False %}-->
+<!--                Đã nhiễm - F0-->
+<!--                {% endif %}-->
+<!--            </th>-->
+            <th>
+<!--                <span  class="btn btn-success btnAlertCovid">Báo cáo là F1</span>-->
+<!--          <a  class="btn btn-success btnAlertCovid" href="http://127.0.0.1:5000/handle?id={{user['IDUser']}}" class="text-white">Báo cáo là F0</a>-->
+                <button type="button"
+                        onclick="welcome('{{user['key']}}','{{user['IDUser']}}')"
+                        data-target="#exampleModal"  class="btn btn-success btnAlertCovid" data-toggle="modal"  data-whatever="@fat">Báo cáo F0</button>
+            <a  class="btn btn-danger btnDelete" href="http://127.0.0.1:5000/deleteuser?idremove={{user['IDUser']}}" class="text-white">Xóa</a>
+            </th>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+<!--        console.log(window.globalUrl);-->
+        function welcome(key,id) {
+var url = 'http://127.0.0.1:5000/handle?id='+id+'&key='+key;
+  console.log(url);
+ $('#formSendInfo').attr('action', url);
+}
+
+    </script>
+
+</div>
+<div class="bottom-pagination float-right">
+    <nav>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+</div>
+</body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="http://127.0.0.1:5000/generalnotification"  method="post" id="formSendInfo">
+          <div class="form-group">
+            <label for="title" class="col-form-label">Tiêu đề</label>
+            <input type="text" class="form-control" id="title" name="titleNoti">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Nội dung thông báo:</label>
+            <textarea class="form-control" id="message-text" name="historyLocation"></textarea>
+          </div>
+              <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary">Gửi thông báo</button>
+      </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+</html>

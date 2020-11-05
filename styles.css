@@ -1,0 +1,11 @@
+.search-box , .bottom-pagination, .option-buttons, .update-form{
+    padding: 20px;
+}
+.heading-text {
+    padding: 10px;
+}
+.heading-text a, .option-buttons a{
+    text-decoration: none;
+}
+
+
