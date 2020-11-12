@@ -109,7 +109,7 @@
                 <button type="button"
                         onclick="welcome('{{user['key']}}','{{user['IDUser']}}')"
                         data-target="#exampleModal"  class="btn btn-success btnAlertCovid" data-toggle="modal"  data-whatever="@fat">Báo cáo F0</button>
-            <a  class="btn btn-danger btnDelete" href="http://127.0.0.1:5000/deleteuser?idremove={{user['IDUser']}}" class="text-white">Xóa</a>
+            <a  class="btn btn-danger btnDelete" href="https://covidtracingserver.herokuapp.com/deleteuser?idremove={{user['IDUser']}}" class="text-white">Xóa</a>
             </th>
         </tr>
         {% endfor %}
