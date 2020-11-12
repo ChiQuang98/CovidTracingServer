@@ -1,1 +1,1 @@
-web: gunicorn wsgi:Firebase
+web: gunicorn app:Firebase
