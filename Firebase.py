@@ -5,7 +5,7 @@ from model.User import User
 import firebase_admin
 from firebase_admin import credentials, db, messaging
 
-pathService_acount_json = 'C:/Users/Admin/PycharmProjects/CovidTracingServer/covidtracing-749e0-firebase-adminsdk-2ub07-05c9957b06.json'
+pathService_acount_json = 'covidtracing-749e0-firebase-adminsdk-2ub07-05c9957b06.json'
 cred = credentials.Certificate(
     pathService_acount_json)
 firebase_admin.initialize_app(cred, {
