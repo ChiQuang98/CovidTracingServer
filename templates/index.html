@@ -105,7 +105,7 @@
 <!--            </th>-->
             <th>
 <!--                <span  class="btn btn-success btnAlertCovid">Báo cáo là F1</span>-->
-<!--          <a  class="btn btn-success btnAlertCovid" href="http://127.0.0.1:5000/handle?id={{user['IDUser']}}" class="text-white">Báo cáo là F0</a>-->
+<!--          <a  class="btn btn-success btnAlertCovid" href="https://covidtracingserver.herokuapp.com/handle?id={{user['IDUser']}}" class="text-white">Báo cáo là F0</a>-->
                 <button type="button"
                         onclick="welcome('{{user['key']}}','{{user['IDUser']}}')"
                         data-target="#exampleModal"  class="btn btn-success btnAlertCovid" data-toggle="modal"  data-whatever="@fat">Báo cáo F0</button>
@@ -118,7 +118,7 @@
     <script>
 <!--        console.log(window.globalUrl);-->
         function welcome(key,id) {
-var url = 'http://127.0.0.1:5000/handle?id='+id+'&key='+key;
+var url = 'https://covidtracingserver.herokuapp.com/handle?id='+id+'&key='+key;
   console.log(url);
  $('#formSendInfo').attr('action', url);
 }
