@@ -1,1 +1,1 @@
-web: gunicorn app:Firebase
+web: gunicorn Firebase:app
